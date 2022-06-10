@@ -1,15 +1,65 @@
 % Define document class
-\documentclass[twocolumn]{aastex631}
+\documentclass[reprint,superscriptaddress,aps,amsmath,linenumbers]{revtex4-2}
+
 \usepackage{showyourwork}
+\usepackage{graphicx}
+\usepackage[separate-uncertainty=true]{siunitx}
+\sisetup{
+    list-units = brackets,
+    range-units = brackets,
+    range-phrase = -,
+    list-pair-separator = {, },
+    list-separator = {, },
+    list-final-separator = {, }
+    }
 
 % Begin!
 \begin{document}
 
 % Title
-\title{An open source scientific article}
+\title{Advice on describing Bayesian analysis of neutron and X-ray reflectometry}
+\thanks{This work was developed as a part of the Open Reflectometry Standards Organisation Workshop in 2022 with contributions from all authors as part of a round-table discussion.}
 
 % Author list
-\author{@arm61}
+\author{Andrew R. McCluskey}
+  \email{andrew.mccluskey@ess.eu}
+  \affiliation{European Spallation Source ERIC, P.O. Box 176, SE-221 00, Lund, SE}
+\author{Andrew J. Caruana}
+  \affiliation{ISIS-Neutron and Muon Source, Rutherford Appleton Laboratory, Didcot, Oxon OX11 0QX, GB}
+\author{Christy J. Kinane}
+  \affiliation{ISIS-Neutron and Muon Source, Rutherford Appleton Laboratory, Didcot, Oxon OX11 0QX, GB}
+\author{Alexander J. Armstrong}
+  \affiliation{ISIS-Neutron and Muon Source, Rutherford Appleton Laboratory, Didcot, Oxon OX11 0QX, GB}
+\author{Tom Arnold}
+  \affiliation{European Spallation Source ERIC, P.O. Box 176, SE-221 00, Lund, SE}
+\author{Joshaniel F. K. Cooper}
+  \affiliation{ISIS-Neutron and Muon Source, Rutherford Appleton Laboratory, Didcot, Oxon OX11 0QX, GB}
+\author{David L. Cortie}
+  \affiliation{Australian Nuclear Science and Technology Organisation, Lucas Heights, New South Wales, AU}  
+\author{Alessandro Greco}
+  \affiliation{Institute of Applied Physics, University of T\"{u}bingen, Auf der Morgenstelle 10, 72076 T\"{u}bingen, DE}
+\author{Arwel V. Hughes}
+  \affiliation{ISIS-Neutron and Muon Source, Rutherford Appleton Laboratory, Didcot, Oxon OX11 0QX, GB}
+\author{Gaetano Mangiapia}
+  \affiliation{German Engineering Material Science at Heinz Maier-Leibnitz Zentrum, Helmholtz-Zentrum Hereon, Lichtenbergstraße 1, 85748 Garching, DE}  
+\author{Brian B. Maranville}
+  \affiliation{Center for Neutron Research, National Institute of Standards and Technology, 100 Bureau Drive, Gaithersburg, Maryland 20899, US}
+\author{Jean-Fran\c{c}ois Moulin}
+  \affiliation{German Engineering Material Science at Heinz Maier-Leibnitz Zentrum, Helmholtz-Zentrum Hereon, Lichtenbergstraße 1, 85748 Garching, DE}
+\author{Andrew R. J. Nelson}
+  \affiliation{Australian Nuclear Science and Technology Organisation, Lucas Heights, New South Wales, AU}  
+\author{Mariano Andr\'{e}s Paulin}
+  \affiliation{Laboratoire L\'{e}on Brillouin. UMR12 CEA-CNRS, B\^{a}t. 563 CEA Saclay. 91191 Gif sur Yvette Cedex, FR}
+\author{Wojciech Potrzebowski}
+  \affiliation{European Spallation Source ERIC, P.O. Box 176, SE-221 00, Lund, SE}
+\author{Mark L. Schlossman}
+  \affiliation{Department of Physics, University of Illinois at Chicago, Chicago, Illinois 60607, US}
+\author{Jochen Stahn}
+  \affiliation{Paul Scherrer Institute, 5232, Villigen, CH}
+\author{Vladimir Starostin}
+  \affiliation{Institute of Applied Physics, University of T\"{u}bingen, Auf der Morgenstelle 10, 72076 T\"{u}bingen, DE}
+  
+\collaboration{Open Reflectometry Standards Organisation}
 
 % Abstract with filler text
 \begin{abstract}
@@ -27,31 +77,60 @@
     Duis eget orci sit amet orci dignissim rutrum.
 \end{abstract}
 
+\maketitle
+
 % Main body with filler text
 \section{Introduction}
 \label{sec:intro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. 
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna. 
-Donec vehicula augue eu neque, morbi tristique senectus et netus et. 
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum. 
-Phasellus eu tellus sit amet tortor gravida placerat. 
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. 
-Praesent eget sem vel leo ultrices bibendum. 
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac. 
-Curabitur auctor semper nulla donec varius orci eget risus. 
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. 
-Duis eget orci sit amet orci dignissim rutrum.
+Neutron and X-ray reflectometry are powerful tools to probe the interfacial structure of materials \cite{lovell_analysis_1999}.
+However, as a result of the ``phase problem'', the analysis of these techniuqes is ill-posed in nature, as there are multiple possible solutions \cite{majkrzak_exact_1995}.
+This has led to the use of Bayesian analysis, where some prior understanding of the system is used to aid our understanding of some reflectivity profile \cite{sivia_analysis_1991,geoghegan_experimental_1996,sivia_bayesian_1998}.
+Recently, developments in the availability of computer software for reflectometry analysis that include Bayesian functionality, such as Refl1d, refnx, anaklasis, and RasCAL \cite{kienzle_refl1d_2021,nelson_refnx_2019,koutsioubas_anaklasis_2021,hughes_rascal_2019}, which implement methods from bumps, emcee, and dynesty \cite{kienzle_bumps_2021,foremanmackey_emcee_2019,speagle_dynesty_2020}, have led to an increase in the utilisation of Bayesian methods by the reflectometry community \cite{mccluskey_bayesian_2019,mccluskey_general_2020}.
 
-Nam dui ligula, fringilla a, euismod sodales, sollici- tudin vel, wisi. 
-Morbi auctor lorem non justo, nam lacus libero, pretium at, lobortis vitae. 
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna. 
-Morbi ac orci et nisl hendrerit mollis, suspendisse ut massa, cras nec ante. 
-Pellentesque a nulla cum sociis natoque penatibus et magnis dis parturient. 
-Aliquam tincidunt urna, nulla ullamcorper vestibulum turpis. 
-Pellentesque cursus luctus mauris \citep{Luger2021}.
+The discussion in this work will focus on best practice for reporting the results from Bayesian- and sampling-based analysis of neutron and X-ray reflectivity data. 
+This work will not introduce Bayesian or sampling methods for neutron and X-ray reflectometry analysis, for those unfamiliar with these techniques, we suggest the work of Sivia and co-workers \cite{sivia_bayesian_1998,sivia_data_2006} and more recent work focusing on reflectometry analysis \cite{hughes_physical_2019,mccluskey_general_2020,nelson_refnx_2019,aboljadayel_determining_2021}. 
+We hope that this work will inform best practices in data sharing from reflectometry analysis and inspire software developers to enable these to be accessed easily by the user. 
 
+Reflectometry analysis can be described, in the most simplistic terms, as a comparison and refinement of a model based on some parameters, $\mathbf{x}$, to reproduce some reflectivity data set, $\mathbf{D}$. 
+This refinement process involves comparing the model to the data and calculating some goodness-of-fit parameter or likelihood, $p(\mathbf{D} | \mathbf{x})$, and modifying the model to either minimise or maximise this, as appropriate. 
+A commonly used goodness-of-fit parameter is the $\chi^2$ parameter \cite{nelson_refnx_2019} which is found as, 
+%
+\begin{equation}
+    \chi^2 = \sum_{q=q_{\text{min}}}^{q_{\text{max}}}{\bigg[\frac{(R(q) - R(q)_{\text{m}})}{\sigma_R(q)}\bigg]^2}, 
+\end{equation}
+%
+where, $R(q)$ is the experimental measured reflectivity, and $\sigma_R(q)$ is the associated uncertainty, at a given $q$ and $R(q)_{\text{m}}$ is the calculated reflectivity for the model at the same $q$.
+The likelihood is related to the $\chi^2$ parameter, however, a larger likelihood is indicative of better agreement, 
+%
+\begin{equation}
+    \ln[p(\mathbf{D} | \mathbf{x})] = -\frac{1}{2} \bigg(\chi^2 + \sum_{q=q_{\text{min}}}^{q_{\text{max}}}\ln{\big[2\pi\sigma_R(q)^2\big]}\bigg).
+\end{equation}
+%
+The input for this refinement process is the model and some initial parameter values, which may be an absolute value or some parameter range, depending on the refinement algorithm. 
+The output is a set of values for $\mathbf{x}$, potentially with associated error bars, where these are present they typically describe a standard deviation from the mean of a Gaussian probability distribution. 
+This process implicitly assumes that the data is completely reduced, accounting for all experimental parameters, uncertainties are accurately described and the model can accurately describe the data. 
+
+The input required depends on a minimisation algorithm being used, with some algorithms requiring a single starting guess (such as traditional Newtonian methods) and others taking a range of potential values (more common in stochastic approaches, like differential evolution). 
+The nature of these inputs define the results of the analysis, therefore it is of the utmost importance that these are shared as part of a publication describing the work. 
+Furthermore, often the minimisation is performed with bounds in place, defining that the parameter values will lie within a given range. 
+This range can be throught of as a having a prior probability distribution, where values of $x$ outside of this range have a probability of \num{0}. 
+Even when a non-Bayesian approach is used in the analysis (i.e. Bayes theorem is not utilised), the result where bounds are set would be analogous to a Bayesian analysis with a uniform prior probability. 
+
+
+
+\section*{CRediT author statement}
+\label{sec:credit}
+
+A.R.M: Conceptualization, Methodology, Resources, Writing - original draft, Writing - review \& editing, Visualisation, Project administration.
+A.J.C \& C.J.K.: Conceptualization, Writing - review \& editing.
+Other authors: Writing - review \& editing.
+
+\begin{acknowledgments}
+    We acknowledge.
+\end{acknowledgments}
+
+\bibliographystyle{naturemag}
 \bibliography{bib}
 
 \end{document}
