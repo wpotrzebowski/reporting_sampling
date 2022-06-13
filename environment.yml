@@ -6,5 +6,7 @@ dependencies:
   - pip=21.0.1
   - python=3.9
   - scipy
+  - corner
+  - bumps
   - pip:
       - matplotlib==3.4.3
