@@ -1,2 +1,33 @@
 # Enforce a non-interactive backend
-backend: agg
+axes.formatter.limits: -3, 3
+xtick.major.pad: 1
+ytick.major.pad: 1
+ytick.color: 161616
+xtick.color: 161616
+axes.labelcolor: 161616
+axes.spines.bottom: True
+axes.spines.left: True
+axes.spines.right: False
+axes.spines.top: False
+axes.axisbelow: True
+legend.frameon: False
+axes.edgecolor: 161616
+pdf.fonttype: 42
+ps.fonttype: 42
+mathtext.fontset: custom
+font.size: 10
+font.family: sans-serif
+savefig.bbox: tight
+axes.facecolor: ffffff
+axes.labelpad: 3.0
+axes.labelsize: 7
+axes.titlepad: 6
+axes.titlesize: 10
+axes.grid: False
+grid.color: ffffff
+lines.markersize: 3.0
+lines.scale_dashes: False
+xtick.labelsize: 6
+ytick.labelsize: 6
+legend.fontsize: 6
+lines.linewidth: 1
