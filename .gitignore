@@ -12,6 +12,3 @@ src/tex/figures/*
 
 # Miscellaneous
 __pycache__
-
-# VSCode
-.vscode
