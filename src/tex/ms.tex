@@ -209,6 +209,7 @@ There are $N$-parameters under investigation, meaning that the sampling is that 
 The result of a Bayesian sampling process is a ``chain'' of samples (with $n$ samples) with each sample in the chain consisting of an array of $N$-parameters, therefore the full chain is of shape $(N, n)$.
 Typically these are histogrammed to show the probability of different values of the parameters, however, to identify independent samples in the chain, autocorrelation analysis may be performed and the chain ``thinned''. 
 We will not cover in detail autocorrelation analysis other than to say that it helps to identify the length of separation required for samples to be independent and that thinning means that we only included samples separated by this length in the final chain. 
+Additionally, it is valuable to report statistics, such as a Gelman-Rubin statistic \cite{gelman_inference_1992}, that describes any convergence analysis that has been performed on the chains.
 
 Either the full posterior chain or the thinned chain with details of the autocorrelation analysis should be shared to accompany any Bayesian or sampling analysis. 
 This will allow the best replication and verification of any results obtained from the data. 
@@ -250,7 +251,8 @@ Specifically, we have outlined how the prior probabilities used to inform our an
 We mentioned the importance of including the specific likelihood function used in an analysis. 
 Additionally, we described how best to present the results from our Bayesian analysis in a clear and precise fashion, including the importance of statistical tests and confidence intervals in reporting.
 We hope that this advice will be taken on by the reflectometry community and in future, there will be greater consistency and clarity in the reporting of results from Bayesian methods.
-Furthermore, we hope that developers of analysis software will take this work as a call to arms to include these best practices as easy-to-access methods in their software. 
+Furthermore, we hope that developers of analysis software will take this work as a call to arms to include these best practices as easy-to-access methods in their software.
+Finally, if results of neutron and X-ray Bayesian analysis is shared as outlined in this work, then the analysis will be both reproducible and comprehensible.
 
 \section*{Data availability}
 
