@@ -1,3 +1,5 @@
+# Advice on describing Bayesian analysis of neutron and X-ray reflectometry
+
 <p align="center">
 <a href="https://github.com/arm61/reporting_sampling/actions/workflows/build.yml">
 <img src="https://github.com/arm61/reporting_sampling/actions/workflows/build.yml/badge.svg?branch=main" alt="Article status"/>
