@@ -67,7 +67,7 @@
   Driven by the availability of modern software, Bayesian analysis is becoming more popular in neutron and X-ray reflectivity analysis.
   The understandability and replicability of these analyses may be harmed by inconsistencies in how the probability distributions central to Bayesian methods are represented in the literature. 
   Herein, we provide advice on how to report the results of Bayesian analysis as applied to neutron and X-ray reflectometry. 
-  This includes the clear reporting of initial starting conditions, the prior probabilities, and results of any analysis, the posterior probabilities that are the Bayesian equivalent of the error bar, to enable replicability and improve understanding. 
+  This includes the clear reporting of initial starting conditions, the prior probabilities, and results of any analysis, and the posterior probabilities that are the Bayesian equivalent of the error bar, to enable replicability and improve understanding. 
   We believe that this advice, grounded in our experience working in the field, will enable greater analytical reproducibility among the reflectometry community, as well as improve the quality and usability of results. 
 \end{abstract}
 
@@ -226,7 +226,7 @@ The importance of presenting the full posterior graphically lies in the ability 
 \end{figure}
 %
 
-To report values for parameters and some form of statistical uncertainty, there are two clear approaches that can be taken from the posterior chain. 
+To report values for parameters and some form of statistical uncertainty, two clear approaches can be taken from the posterior chain. 
 The first is to use some known statistical distribution that describes the samples well. 
 This is best defined for a normal distribution, for which there are statistical tests to check normality, such as the D'Agostino and Pearson's test \cite{dagostino_omnibus_1971,dagostino_tests_1973} (which is available in the SciPy library as \texttt{scipy.stats.normal\_test} \cite{virtanen_scipy_2020}).
 As will all statistical tests, this requires some threshold value to be defined to reject the null hypothesis, for this value we recommend \num{0.001} but accept that this is at the discretion of the user. 
