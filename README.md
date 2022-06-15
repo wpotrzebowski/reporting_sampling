@@ -1,16 +1,20 @@
 # Advice on describing Bayesian analysis of neutron and X-ray reflectometry
 
-<p align="center">
-<a href=“https://doi.org/10.5281/zenodo.xxxxxxx”><img src=“https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg”></a>
-<a href=“https://arxiv.org/abs/xxxx.xxxxx”><img src=“https://img.shields.io/badge/arXiv-xxxx.xxxxx-orange.svg”></a>
-<a href="https://github.com/arm61/reporting_sampling/actions/workflows/build.yml">
-<img src="https://github.com/arm61/reporting_sampling/actions/workflows/build.yml/badge.svg?branch=main" alt="Article status"/>
+<p align=“center“>
+<a href=“https://doi.org/10.5281/zenodo.xxxxxxx”>
+<img src=“https://zenodo.org/badge/DOI/10.5281/zenodo.xxxxxxx.svg”/>
 </a>
-<a href="https://github.com/arm61/reporting_sampling/raw/main-pdf/arxiv.tar.gz">
-<img src="https://img.shields.io/badge/article-tarball-blue.svg?style=flat" alt="Article tarball"/>
+<a href=“https://arxiv.org/abs/xxxx.xxxxx”>
+<img src=“https://img.shields.io/badge/arXiv-xxxx.xxxxx-orange.svg”/>
 </a>
-<a href="https://github.com/arm61/reporting_sampling/raw/main-pdf/ms.pdf">
-<img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
+<a href=“https://github.com/arm61/reporting_sampling/actions/workflows/build.yml”>
+<img src=“https://github.com/arm61/reporting_sampling/actions/workflows/build.yml/badge.svg?branch=main” alt=“Article status”/>
+</a>
+<a href=“https://github.com/arm61/reporting_sampling/raw/main-pdf/arxiv.tar.gz”>
+<img src=“https://img.shields.io/badge/article-tarball-blue.svg?style=flat” alt=“Article tarball”/>
+</a>
+<a href=“https://github.com/arm61/reporting_sampling/raw/main-pdf/ms.pdf”>
+<img src=“https://img.shields.io/badge/article-pdf-blue.svg?style=flat” alt=“Read the article”/>
 </a>
 </p>
 
