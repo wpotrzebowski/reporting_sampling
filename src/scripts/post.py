@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gs
 from corner import corner
 from bumps import dream
+from scipy.stats import normaltest
 
 import paths
 import utils

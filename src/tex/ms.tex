@@ -39,16 +39,10 @@
   \affiliation{Australian Nuclear Science and Technology Organisation, Lucas Heights, New South Wales, AU}  
 \author{Arwel V. Hughes}
   \affiliation{ISIS-Neutron and Muon Source, Rutherford Appleton Laboratory, Didcot, Oxon OX11 0QX, GB}
-\author{Gaetano Mangiapia}
-  \affiliation{German Engineering Material Science at Heinz Maier-Leibnitz Zentrum, Helmholtz-Zentrum Hereon, Lichtenbergstraße 1, 85748 Garching, DE}  
-\author{Brian B. Maranville}
-  \affiliation{Center for Neutron Research, National Institute of Standards and Technology, 100 Bureau Drive, Gaithersburg, Maryland 20899, US}
 \author{Jean-Fran\c{c}ois Moulin}
   \affiliation{German Engineering Material Science at Heinz Maier-Leibnitz Zentrum, Helmholtz-Zentrum Hereon, Lichtenbergstraße 1, 85748 Garching, DE}
 \author{Andrew R. J. Nelson}
   \affiliation{Australian Nuclear Science and Technology Organisation, Lucas Heights, New South Wales, AU}  
-\author{Mariano Andr\'{e}s Paulin}
-  \affiliation{Laboratoire L\'{e}on Brillouin. UMR12 CEA-CNRS, B\^{a}t. 563 CEA Saclay. 91191 Gif sur Yvette Cedex, FR}
 \author{Wojciech Potrzebowski}
   \affiliation{European Spallation Source ERIC, P.O. Box 176, SE-221 00, Lund, SE}
 \author{Vladimir Starostin}
@@ -58,7 +52,7 @@
 
 % Abstract with filler text
 \begin{abstract}
-  Driven by the availability of modern software, Bayesian analysis is becoming more popular in neutron and X-ray reflectivity analysis.
+  Driven by the availability of modern software and hardware, Bayesian analysis is becoming more popular in neutron and X-ray reflectivity analysis.
   The understandability and replicability of these analyses may be harmed by inconsistencies in how the probability distributions central to Bayesian methods are represented in the literature. 
   Herein, we provide advice on how to report the results of Bayesian analysis as applied to neutron and X-ray reflectometry. 
   This includes the clear reporting of initial starting conditions, the prior probabilities, and results of any analysis, and the posterior probabilities that are the Bayesian equivalent of the error bar, to enable replicability and improve understanding. 
@@ -74,9 +68,9 @@
 Neutron and X-ray reflectometry are powerful tools to probe the interfacial structure of materials \cite{lovell_analysis_1999}.
 However, as a result of the ``phase problem'', the analysis of these techniques is ill-posed in nature, as there are multiple possible solutions \cite{majkrzak_exact_1995}.
 This has led to the use of Bayesian analysis, where some prior understanding of the system is used to aid our understanding of some reflectivity profile \cite{sivia_analysis_1991,geoghegan_experimental_1996,sivia_bayesian_1998}.
-Recently, developments in the availability of computer software for reflectometry analysis that include Bayesian functionality, such as Refl1d, refnx, anaklasis, and RasCAL \cite{kienzle_refl1d_2021,nelson_refnx_2019,koutsioubas_anaklasis_2021,hughes_rascal_2019}, which implement methods from bumps, emcee, and dynesty \cite{kienzle_bumps_2021,foremanmackey_emcee_2019,speagle_dynesty_2020}, have led to an increase in the utilisation of Bayesian methods by the reflectometry community \cite{mccluskey_bayesian_2019,mccluskey_general_2020}.
+Recently, developments in the availability of computer software for reflectometry analysis that include Bayesian functionality, such as Refl1d, refnx, anaklasis, and RasCAL \cite{kienzle_refl1d_2021,nelson_refnx_2019,koutsioubas_anaklasis_2021,hughes_rascal_2019}, which implement sampling methods from bumps, emcee, and dynesty \cite{kienzle_bumps_2021,foremanmackey_emcee_2019,speagle_dynesty_2020}, have led to an increase in the utilisation of Bayesian methods by the reflectometry community \cite{mccluskey_bayesian_2019,mccluskey_general_2020}.
 
-The discussion in this work will focus on the best practice for reporting the results from Bayesian- and sampling-based analysis of neutron and X-ray reflectivity data. 
+The discussion in this work will focus on the best practice for reporting the results from Bayesian and sampling-based analysis of neutron and X-ray reflectivity data. 
 This work will not introduce Bayesian or sampling methods for neutron and X-ray reflectometry analysis. For those unfamiliar with these techniques, we suggest the work of Sivia and co-workers \cite{sivia_bayesian_1998,sivia_data_2006} and more recent work focusing on reflectometry analysis \cite{hughes_physical_2019,mccluskey_general_2020,nelson_refnx_2019,aboljadayel_determining_2021}. 
 We hope that this work will inform best practices in data sharing from reflectometry analysis and inspire software developers to enable these to be accessed easily by the user. 
 
@@ -88,7 +82,7 @@ A commonly used goodness-of-fit parameter is the $\chi^2$ parameter which is fou
     \chi^2 = \sum_{q=q_{\text{min}}}^{q_{\text{max}}}{\bigg[\frac{(R(q) - R(q)_{\text{m}})}{\sigma_R(q)}\bigg]^2}, 
 \end{equation}
 %
-where, $R(q)$ is the experimental measured reflectivity, and $\sigma_R(q)$ is the associated uncertainty, at a given $q$ and $R(q)_{\text{m}}$ is the calculated reflectivity for the model at the same $q$.
+where, $R(q)$ and $R(q)_{\text{m}}$ are the measured and modelled reflectivity at a given $q$, the measured momentum transfer vector, and $\sigma_R(q)$ is the uncertainty associated with the measured reflectivity at each $q$ point.
 The likelihood is related to the $\chi^2$ parameter, however, a larger likelihood is indicative of better agreement between the model and data, 
 %
 \begin{equation}
@@ -102,8 +96,8 @@ This process implicitly assumes that the data is completely reduced, accounting 
 
 The input required depends on a minimisation algorithm being used, with some algorithms requiring a single starting guess (such as traditional Newtonian methods) and others taking a range of potential values (more common in stochastic approaches, like differential evolution). 
 The nature of these inputs define the results of the analysis, therefore it is of the utmost importance that these are shared as part of a publication describing the work. 
-Furthermore, often the minimisation is performed with bounds in place, defining that the parameter values will lie within a given range. 
-This range can be thought of as having a prior probability distribution, $p(\mathbf{x})$, where values of $x$ outside of this range have a probability of \num{0}. 
+Furthermore, the minimisation is often performed with bounds in place, defining that the parameter values will lie within a given range. 
+This range can be thought of as having a prior probability distribution, $p(\mathbf{x})$, where values of $\mathbf{x}$ outside of this range have a probability of \num{0}. 
 Even when a non-Bayesian approach is used in the analysis (i.e. Bayes theorem is not utilised), the result where bounds are set would be analogous to a Bayesian analysis with a uniform prior probability. 
 
 The optimised parameters from the minimisation algorithm, which depend on the particular algorithm, often include some statistical uncertainty. 
@@ -128,7 +122,7 @@ Furthermore, uptake of the approaches discussed herein will lead to greater clar
 
 The most common prior probability that is used for a parameter is uniform between two values.
 The use of a bounded parameter along with some traditional $\chi^2$-minimisation method and a parameter with a uniform prior and a Bayesian maximum \emph{a-posteriori} approach will lead to the same result. 
-For priors that are uniform is it important that the upper and lower bounds are reported, this can be achieved with a simple table to be included in the article or supplementary information, we show an example of this in Table~\ref{tab:bounds}. 
+For priors that are uniform is it important that the upper and lower bounds are reported, this can be achieved with a simple table  (see Table~\ref{tab:bounds} for an example) to be included in the article or supplementary information. 
 %
 \begin{table}
     \caption{An example of the presenting uniform priors in a tabular format. Reproduced from \cite{mccluskey_general_2020}, where each parameter was either constrained to a given value or sampled within the prior range.}
@@ -151,7 +145,7 @@ However, the increasing popularity of Bayesian methods and interest in using com
 Here we will define two potential types of informative prior probabilities, those that can be described with some mathematical function and those that cannot, for example arising from the application of a sampling-based analysis of a complementary technique. 
 
 When a prior probability can be described with a mathematical function, this should be done by providing this function in the clearest possible language. 
-For example, if the prior is taken from a single complementary measurement that is defined as a value with some uncertainty, which represents a normal distribution with a mean and standard deviation, this information can be provided. 
+For example, if the prior is taken from a single complementary measurement that is defined as a value with some uncertainty, which represents a normal distribution with a mean and standard deviation, this information should be provided. 
 This is shown in Figure~\ref{fig:prior} for the density of silicon nitride (\ce{Si3N4}) produced by atomic layer deposition \cite{knoops_atomic_2015}) which is used to inform the value for a scattering length density for some layer of the material. 
 Such a prior probability distribution could be described graphically as in Figure~\ref{fig:prior}, in prose as being ``normally distributed with a mean of \SI{2.9}{\gram\per\cubic\centi\meter} and a standard deviation of \SI{0.1}{\gram\per\cubic\centi\meter}'', mathematically as, 
 %
@@ -173,7 +167,7 @@ The same descriptive approach could be taken for any common statistical distribu
 %
 
 In the case that the prior distribution cannot be described easily with some mathematical function, for example, if it is a multimodal model result from some other sampling method, then the chain from the prior sampling should be given. 
-The chain is all of the samples investigated in the sampling should be shared, although in the case that this chain is very large a subsampled object may be shared, in which case, the autocorrelation analysis performed should be described (see Section~\ref{sec:posterior} for a more complete discussion of this).
+The chain is all of the samples investigated in the sampling and should be shared, although in the case that this chain is very large a subsampled object may be shared, in which case, the autocorrelation analysis performed should be described (see Section~\ref{sec:posterior} for a more complete discussion of this).
 To use such a prior probability in Bayesian analysis, some functional description of the prior must be generated, most commonly this will be some kernel density estimation, when this is used it is also necessary to state the structure of the kernel being used. 
 An example of this is shown in Figure~\ref{fig:samples}, where the prior probability for the volume of a phospholipid tail could be found from molecular dynamics simulation where there are three common conformers that the lipid is likely to have.
 %
@@ -199,15 +193,16 @@ While a normally distributed uncertainty is the most common, it may not be accur
 \label{sec:posterior}
 
 Bayesian analysis methods typically involve using some sampling process, such as Markov chain Monte Carlo, to estimate the posterior probability distributions for each of the parameters. 
-There are $N$-parameters under investigation, meaning that the sampling is that of an $N$-dimensional probability distribution. 
-The result of a Bayesian sampling process is a ``chain'' of samples (with $n$ samples) with each sample in the chain consisting of an array of $N$-parameters, therefore the full chain is of shape $(N, n)$.
+Assuming there are $m$ parameters under investigation, the posterior will be an $m$-dimensional probability distribution. 
+The result of a Bayesian sampling process is a ``chain'' consisting of $n$ samples for each parameter. 
+Therefore, the full chain has a shape $(m, n)$. 
 Typically these are histogrammed to show the probability of different values of the parameters, however, to identify independent samples in the chain, autocorrelation analysis may be performed and the chain ``thinned''. 
-We will not cover in detail autocorrelation analysis other than to say that it helps to identify the length of separation required for samples to be independent and that thinning means that we only included samples separated by this length in the final chain. 
-Additionally, it is valuable to report statistics, such as a Gelman-Rubin statistic \cite{gelman_inference_1992}, that describes any convergence analysis that has been performed on the chains.
+We will not cover in detail autocorrelation analysis other than to say that it helps to identify the length of separation required for samples to be independent and that thinning means that we only included samples separated by this length in the final chain.
+Additionally, it is valuable to rreport the use of convergence diagnostics, such as the Gelman-Rubin statistic \cite{gelman_inference_1992}, which can assist in determining if a chian appropriately describes a posterior. 
 
-Either the full posterior chain or the thinned chain with details of the autocorrelation analysis should be shared to accompany any Bayesian or sampling analysis. 
+Either the full posterior chain or the thinned chain should be shared along with details of any autocorrelation analysis to accompany any Bayesian or sampling analysis. 
 This will allow the best replication and verification of any results obtained from the data. 
-Furthermore, large output files such as these chains can be easily chaired using some versioned data repository, such as Zenodo or those available at specific institutions. 
+Furthermore, large output files such as these chains can be easily shared using some versioned data repository, such as Zenodo or those available at specific institutions. 
 Additionally, to allow the reader to quickly interpret the sampled posterior, a graphical description (such as that in Figure~\ref{fig:post}) should be included, at a minimum, in the supplementary information of the work. 
 The importance of presenting the full posterior graphically lies in the ability to easily interpret correlations between parameters through this medium. 
 %
@@ -223,12 +218,12 @@ The importance of presenting the full posterior graphically lies in the ability 
 
 To report values for parameters and some form of statistical uncertainty, two clear approaches can be taken from the posterior chain. 
 The first is to use some known statistical distribution that describes the samples well. 
-This is best defined for a normal distribution, for which there are statistical tests to check normality, such as the D'Agostino and Pearson's test \cite{dagostino_omnibus_1971,dagostino_tests_1973} (which is available in the SciPy library as \texttt{scipy.stats.normal\_test} \cite{virtanen_scipy_2020}).
-As will all statistical tests, this requires some threshold value to be defined to reject the null hypothesis, for this value we recommend \num{0.001} but accept that this is at the discretion of the user. 
+This is best defined for a normal distribution, for which there are statistical tests to check normality, such as the D'Agostino and Pearson's test \cite{dagostino_omnibus_1971,dagostino_tests_1973} (which is available in the SciPy library as \texttt{scipy.stats.normaltest} \cite{virtanen_scipy_2020}).
+As with all statistical tests, this requires some threshold value to be defined to reject the null hypothesis, for this value we recommend \num{0.001} but accept that this is at the discretion of the user. 
 If the parameter distribution passes a statistical test for a given distribution type, this can be quoted in the work, with information about the distribution type and the threshold value used, and the distribution can be described based on fitted parameters of the distribution as is discussed above for the Gaussian distribution. 
-For example, the three parameters in Figure~\ref{fig:post} pass this statistical tests, with $p$-values of less than \num{1e-15}, therefore we can quote the parameters as normal distributions; \variable{output/mag_sld.txt}\unskip, \variable{output/density.txt}\unskip, and \variable{output/thick.txt}\unskip.
+For example, the three parameters in Figure~\ref{fig:post} pass this statistical tests, with $p$-values of greater than \num{0.01} when \num{1000} random samples are used, therefore we can quote the parameters as normal distributions; \variable{output/mag_sld.txt}\unskip, \variable{output/density.txt}\unskip, and \variable{output/thick.txt}\unskip.
 
-If it is not possible to describe the $N$-dimensional distribution using some statistical test and a common distribution type, then confidence intervals can be given. 
+If it is not possible to describe the $m$-dimensional distribution using some statistical test and a common distribution type, then confidence intervals can be given. 
 Where these are used the percentage of the confidence interval must be defined alongside it. 
 Alongside these confidence intervals, it is typically most accurate to give the maximum probability value for the parameter, rather than the numerical mean which may sit in a region of low probability.
 
