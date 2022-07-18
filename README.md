@@ -25,4 +25,11 @@
 ---
 
 This is the electronic supplementary information (ESI) associated with the publication “Advice on describing Bayesian analysis of neutron and X-ray reflectometry”. 
-This is an open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
+This is an open source scientific article created using the [showyourwork](https://show-your.work) workflow.
+To run the workflow and generate the paper locally using the cached data run the following: 
+```
+git clone git@github.com:arm61/msd-errors.git
+pip install showyourwork
+showyourwork build 
+```
+Full details of the workflow can be determined from the [`Snakefile`](https://github.com/arm61/reporting_sampling/blob/main/Snakefile) and the [`showyourwork.yml`](https://github.com/arm61/reporting_sampling/blob/main/Snakefile).
