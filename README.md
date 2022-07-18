@@ -28,7 +28,8 @@ This is the electronic supplementary information (ESI) associated with the publi
 This is an open source scientific article created using the [showyourwork](https://show-your.work) workflow.
 To run the workflow and generate the paper locally using the cached data run the following: 
 ```
-git clone git@github.com:arm61/msd-errors.git
+git clone git@github.com:arm61/reporting_sampling.git
+cd reporting_sampling
 pip install showyourwork
 showyourwork build 
 ```
