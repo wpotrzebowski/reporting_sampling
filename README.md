@@ -32,4 +32,4 @@ git clone git@github.com:arm61/msd-errors.git
 pip install showyourwork
 showyourwork build 
 ```
-Full details of the workflow can be determined from the [`Snakefile`](https://github.com/arm61/reporting_sampling/blob/main/Snakefile) and the [`showyourwork.yml`](https://github.com/arm61/reporting_sampling/blob/main/Snakefile).
+Full details of the workflow can be determined from the [`Snakefile`](https://github.com/arm61/reporting_sampling/blob/main/Snakefile) and the [`showyourwork.yml`](https://github.com/arm61/reporting_sampling/blob/main/showyourwork.yml).
