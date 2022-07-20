@@ -75,7 +75,7 @@ This work will not introduce Bayesian or sampling methods for neutron and X-ray 
 We hope that this work will inform best practices in data sharing from reflectometry analysis and inspire software developers to enable these to be accessed easily by the user. 
 
 Reflectometry analysis can be described, in the most simplistic terms, as a comparison and refinement of a model based on some parameters, $\mathbf{x}$, to reproduce some reflectivity data set, $\mathbf{D}$. 
-This refinement process involves comparing the model to the data and calculating some goodness-of-fit parameter or likelihood, $p(\mathbf{D} | \mathbf{x})$, and modifying the model to either minimise or maximise this, as appropriate. 
+This refinement process involves comparing the model to the data and calculating some goodness-of-fit value or likelihood, $p(\mathbf{D} | \mathbf{x})$, and modifying the model to optimize the goodness-of-fit or maximise the likelihood.
 A commonly used goodness-of-fit parameter is the $\chi^2$ parameter which is found as \cite{nelson_refnx_2019}, 
 %
 \begin{equation}
@@ -91,7 +91,9 @@ Under an assumption of normally distributed residuals $R(q) - R(q)_{\text{m}} \s
 \end{equation}
 %
 The input for this refinement process is the model and some initial parameter values, which may be an absolute value or some parameter range, depending on the refinement algorithm. 
+% ARJN the output of a Bayesian modelling process is a probability distribution for x. If everything is nice these will be Normally distributed, but not necessarily. We then report some statistical measure, e.g. mode/mean/median.
 The output is a set of values for $\mathbf{x}$, potentially with associated error bars, where these are present they typically describe a standard deviation from the mean of a Gaussian probability distribution. 
+% ARJN Perhaps a Bayesian modelling process can deal with inaccurate reporting of uncertainties, e.g. some factor that accounts for error bars that are statistically underestimated.
 This process implicitly assumes that the data is completely reduced, accounting for all experimental parameters, uncertainties are accurately described and the model can accurately describe the data. 
 
 The input required depends on a minimisation algorithm being used, with some algorithms requiring a single starting guess (such as traditional Newtonian methods) and others taking a range of potential values (more common in stochastic approaches, like differential evolution). 
@@ -101,8 +103,10 @@ This range can be thought of as having a prior probability distribution, $p(\mat
 Even when a non-Bayesian approach is used in the analysis (i.e. Bayes theorem is not utilised), the result where bounds are set would be analogous to a Bayesian analysis with a uniform prior probability. 
 
 The optimised parameters from the minimisation algorithm, which depend on the particular algorithm, often include some statistical uncertainty. 
+% ARJN, parameters uncertainties only assumed to be normally distributed for gradient based minimizers. Bayesian analyses don't assume any form of statistical distribution.
+% Provide reference  for how statistical uncertainties are found, e.g. the appropriate place in Bevington.
 How these statistical uncertainties are found is beyond the scope of this work, but it is important to acknowledge that this uncertainty typically assumes that the probability distribution of the parameter is Gaussian in nature. 
-This probability distribution is either the partial likelihood or posterior, the latter when some prior is included and Bayes theorem is applied and describes our understanding of the parameter values. 
+This probability distribution is either the partial likelihood or posterior, the latter when some prior is included and Bayes theorem is applied. The posterior describes our understanding of the parameter values given the data that was measured.
 When Bayesian modelling is used and the prior is included, the posterior probability is found as, 
 %
 \begin{equation}
@@ -110,10 +114,10 @@ When Bayesian modelling is used and the prior is included, the posterior probabi
   \label{equ:bayes}
 \end{equation}
 %
-Therefore, when Bayesian modelling is performed, the priors and likelihood are of fundamental importance to the results that are obtained, the posterior, and therefore any scientific conclusions that are drawn. 
+Therefore, when Bayesian modelling is performed, the priors and likelihood are of fundamental importance to the results that are obtained (the posterior), and any scientific conclusions that are drawn. 
 
 The use of Bayesian inference can be valuable in the interpretation of reflectivity data, however, inconsistency in the description of the process will result in analysis that cannot be reproduced or easily understood. 
-This can range from not giving the bounds of a uniform prior probability, to failing to share the complete sampling chain of a Markov chain Monte Carlo sampling or details of any autocorrelation analysis (the last of which, the authors of this work admit to being guilty of \cite{mccluskey_bayesian_2019}). 
+This can range from not reporting the priors applied to each parameter (e.g. the lower/upper limits for a uniform distribution that applies box bounds), to failing to share the complete sampling chain of a Markov Chain Monte Carlo sampling, or details of any autocorrelation analysis (the last of which, the authors of this work admit to being guilty of \cite{mccluskey_bayesian_2019}). 
 In this letter, we outline the best practice for reporting the results of Bayesian analysis for neutron and X-ray reflectometry, we hope that this work will engage others to carefully consider how they report this information. 
 Furthermore, uptake of the approaches discussed herein will lead to greater clarity about the models and assumptions used in, and reproducibility of, our analyses.
 
