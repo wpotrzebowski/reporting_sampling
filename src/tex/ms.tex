@@ -208,9 +208,11 @@ Bayesian analysis methods typically involve using some sampling process, such as
 Assuming there are $m$ parameters under investigation, the posterior will be an $m$-dimensional probability distribution. 
 The result of a Bayesian sampling process is a ``chain'' consisting of $n$ samples for each parameter. 
 Therefore, the full chain has a shape $(m, n)$. 
-Typically these are histogrammed to show the probability of different values of the parameters, however, to identify independent samples in the chain, autocorrelation analysis may be performed and the chain ``thinned''. 
+% ARJN a reader may not know what an 'independent', or 'non-independent sample' is.
+% ARJN provide a reference for autocorrelation analysis.
+Typically these are histogrammed to show the probability of different values of the parameters. However, to identify independent (non-correlated) samples in the chain, autocorrelation analysis may be performed and the chain ``thinned''. 
 We will not cover in detail autocorrelation analysis other than to say that it helps to identify the length of separation required for samples to be independent and that thinning means that we only included samples separated by this length in the final chain.
-Additionally, it is valuable to rreport the use of convergence diagnostics, such as the Gelman-Rubin statistic \cite{gelman_inference_1992}, which can assist in determining if a chian appropriately describes a posterior. 
+Additionally, it is valuable to report the use of convergence diagnostics, such as the Gelman-Rubin statistic \cite{gelman_inference_1992}, which can assist in determining if a chain appropriately describes a posterior. 
 
 Either the full posterior chain or the thinned chain should be shared along with details of any autocorrelation analysis to accompany any Bayesian or sampling analysis. 
 This will allow the best replication and verification of any results obtained from the data. 
@@ -228,8 +230,11 @@ The importance of presenting the full posterior graphically lies in the ability 
 \end{figure}
 %
 
-To report values for parameters and some form of statistical uncertainty, two clear approaches can be taken from the posterior chain. 
-The first is to use some known statistical distribution that describes the samples well. 
+To report values for parameters and some form of statistical uncertainty, two approaches can be taken from the posterior chain. 
+The first is to use some known statistical distribution that describes the samples well.
+% ARJN I think this will rapidly become intractible. For example what would one do with e.g. 100 parameters, should one be checking them all for normality? There will inevitably ones that are skewed. Then there will be a hodgepodge of answers.
+% ARJN THe only point in checking for normality (or matching any distribution) would be if the science was predicting some specific distribution of parameter values. 
+% ARJN For a unimodal distribution I report 50th percentile (median) and half the [16, 84] range.
 This is best defined for a normal distribution, for which there are statistical tests to check normality, such as the D'Agostino and Pearson's test \cite{dagostino_omnibus_1971,dagostino_tests_1973} (which is available in the SciPy library as \texttt{scipy.stats.normaltest} \cite{virtanen_scipy_2020}).
 As with all statistical tests, this requires some threshold value to be defined to reject the null hypothesis, for this value we recommend \num{0.001} but accept that this is at the discretion of the user. 
 If the parameter distribution passes a statistical test for a given distribution type, this can be quoted in the work, with information about the distribution type and the threshold value used, and the distribution can be described based on fitted parameters of the distribution as is discussed above for the Gaussian distribution. 
