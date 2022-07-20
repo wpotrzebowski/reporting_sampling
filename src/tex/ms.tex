@@ -82,8 +82,8 @@ A commonly used goodness-of-fit parameter is the $\chi^2$ parameter which is fou
     \chi^2 = \sum_{q=q_{\text{min}}}^{q_{\text{max}}}{\bigg[\frac{(R(q) - R(q)_{\text{m}})}{\sigma_R(q)}\bigg]^2}, 
 \end{equation}
 %
-where, $R(q)$ and $R(q)_{\text{m}}$ are the measured and modelled reflectivity at a given $q$, the measured momentum transfer vector, and $\sigma_R(q)$ is the uncertainty associated with the measured reflectivity at each $q$ point.
-The likelihood is related to the $\chi^2$ parameter, however, a larger likelihood is indicative of better agreement between the model and data, 
+where, $R(q)$ and $R(q)_{\text{m}}$ are the measured and modelled reflectivity at a given $q$, the measured momentum transfer vector, and $\sigma_R(q)$ is the uncertainty associated with the measured reflectivity at each $q$ point. 
+Under an assumption of normally distributed residuals $R(q) - R(q)_{\text{m}} \sim \mathcal{N}(0, \sigma_R(q))$, the likelihood is related to the $\chi^2$ variable in the following way:
 %
 \begin{equation}
     \ln[p(\mathbf{D} | \mathbf{x})] = -\frac{1}{2} \bigg(\chi^2 + \sum_{q=q_{\text{min}}}^{q_{\text{max}}}\ln{\big[2\pi\sigma_R(q)^2\big]}\bigg).
