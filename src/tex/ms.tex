@@ -124,7 +124,8 @@ Furthermore, uptake of the approaches discussed herein will lead to greater clar
 \section{Prior}
 \label{sec:prior}
 
-The most common prior probability that is used for a parameter is uniform between two values.
+% ARJN Application of a half-closed distribution may be as common? e.g. [0, inf] for a parameter that is known to be non-negative. Should we mention this in table 1?
+The most common probability distribution that is used for a prior is uniform between a lower and upper bound.
 The use of a bounded parameter along with some traditional $\chi^2$-minimisation method and a parameter with a uniform prior and a Bayesian maximum \emph{a-posteriori} approach will lead to the same result. 
 For priors that are uniform is it important that the upper and lower bounds are reported, this can be achieved with a simple table  (see Table~\ref{tab:bounds} for an example) to be included in the article or supplementary information. 
 %
@@ -144,14 +145,16 @@ For priors that are uniform is it important that the upper and lower bounds are 
 \end{table}
 %
 
-Currently, the use of non-uniform, informative priors is less common in the analysis of reflectometry. 
+Currently, the use of non-uniform, informative priors is less common in reflectometry analysis.
 However, the increasing popularity of Bayesian methods and interest in using complementary methods for analysis means that these are likely to become more popular in the coming years. 
 Here we will define two potential types of informative prior probabilities, those that can be described with some mathematical function and those that cannot, for example arising from the application of a sampling-based analysis of a complementary technique. 
 
 When a prior probability can be described with a mathematical function, this should be done by providing this function in the clearest possible language. 
 For example, if the prior is taken from a single complementary measurement that is defined as a value with some uncertainty, which represents a normal distribution with a mean and standard deviation, this information should be provided. 
-This is shown in Figure~\ref{fig:prior} for the density of silicon nitride (\ce{Si3N4}) produced by atomic layer deposition \cite{knoops_atomic_2015}) which is used to inform the value for a scattering length density for some layer of the material. 
-Such a prior probability distribution could be described graphically as in Figure~\ref{fig:prior}, in prose as being ``normally distributed with a mean of \SI{2.9}{\gram\per\cubic\centi\meter} and a standard deviation of \SI{0.1}{\gram\per\cubic\centi\meter}'', mathematically as, 
+This is shown in Figure~\ref{fig:prior} for the density of silicon nitride (\ce{Si3N4}) produced by atomic layer deposition \cite{knoops_atomic_2015}) which is used to inform the value for a scattering length density for some layer of the material.
+% ARJN I would argue that reporting a prior graphically is not really all that useful, unless it's obtained by sampling.
+% ARJN I reckon the concise version is what we should recommend. Reporting the equation for the prior is overkill for a normal distribution, and may only be necessary where there's vagueness about a distribution, e.g. there's a few ways of describing a log-normal.
+Such a prior probability distribution could be described graphically, Figure~\ref{fig:prior}, or in prose as being ``normally distributed with a mean of \SI{2.9}{\gram\per\cubic\centi\meter} and a standard deviation of \SI{0.1}{\gram\per\cubic\centi\meter}'', mathematically as, 
 %
 \begin{equation}
   p(\rho_m) = \frac{1}{\sigma\sqrt{2\pi}}\exp\Bigg[-\frac{1}{2}\bigg(\frac{\rho_m-\mu}{\sigma}\bigg)^2\Bigg]
@@ -170,8 +173,9 @@ The same descriptive approach could be taken for any common statistical distribu
 \end{figure}
 %
 
-In the case that the prior distribution cannot be described easily with some mathematical function, for example, if it is a multimodal model result from some other sampling method, then the chain from the prior sampling should be given. 
-The chain is all of the samples investigated in the sampling and should be shared, although in the case that this chain is very large a subsampled object may be shared, in which case, the autocorrelation analysis performed should be described (see Section~\ref{sec:posterior} for a more complete discussion of this).
+It is possible that the prior distribution cannot be described with a simple mathematical function, with multi-modal priors being an example.
+%, if it is a multimodal model result from some other sampling method, then the chain from the prior sampling should be given. 
+%The chain is all of the samples investigated in the sampling and should be shared, although in the case that this chain is very large a subsampled object may be shared, in which case, the autocorrelation analysis performed should be described (see Section~\ref{sec:posterior} for a more complete discussion of this).
 To use such a prior probability in Bayesian analysis, some functional description of the prior must be generated, most commonly this will be some kernel density estimation, when this is used it is also necessary to state the structure of the kernel being used. 
 An example of this is shown in Figure~\ref{fig:samples}, where the prior probability for the volume of a phospholipid tail could be found from molecular dynamics simulation where there are three common conformers that the lipid is likely to have.
 %
