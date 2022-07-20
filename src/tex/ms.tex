@@ -193,8 +193,12 @@ An example of this is shown in Figure~\ref{fig:samples}, where the prior probabi
 \label{sec:likelihood}
 
 Bayes theorem (given in Equation~\ref{equ:bayes}) consists of the product of the prior and the likelihood. 
-The former describes our current understanding of the system before we conduct some experiments, while the latter describes the understanding that we gain from the data. 
-Therefore, we must state how the likelihood for a given model and data is calculated, in particular, because although Equation~\ref{equ:likelihood} is a common approach, it assumes a normally distributed uncertainty. 
+The former describes our current understanding of the parameters before we conduct some experiments, while the latter describes how well the data is described by the model parameters. 
+% ARJN we're not offering the reader suggestions on how to state this. Can they just state that they used packageX with version Y with likelihood option Z?
+% ARJN there are multiple ways of weighting data, I'm not sure most users would know the details of how the likelihood is calculated in a given package.
+% ARJN Should package authors state how this is done more comprehensively?
+Therefore, we must state how the likelihood for a given model and data is calculated, in particular, because although Equation~\ref{equ:likelihood} is a common approach, it assumes a normally distributed uncertainty for a measured reflectivity value. 
+% ARJN I think this is something like less than 30 (10?)???
 While a normally distributed uncertainty is the most common, it may not be accurate in all circumstances, for example, when low numbers of counts are present, a Poisson uncertainty may offer a more accurate description. 
 
 \section{Posterior}
